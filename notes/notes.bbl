@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{7}%
+\begin{thebibliography}{8}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -138,4 +138,19 @@
   {\bibinfo  {journal} {The European Physical Journal Special Topics}\ }\textbf
   {\bibinfo {volume} {208}},\ \bibinfo {pages} {359--371} (\bibinfo {year}
   {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Malgrange}\ \emph {et~al.}(1991)\citenamefont
+  {Malgrange}, \citenamefont {Carvalho}, \citenamefont {Braicovich},\ and\
+  \citenamefont {Goulon}}]{Malgrange1991}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Malgrange}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Carvalho}},
+  \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Braicovich}}, \ and\
+  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Goulon}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Transfer of circular polarization in
+  bragg crystal x-ray monochromators},}\ }\href {\doibase
+  http://dx.doi.org/10.1016/0168-9002(91)90676-H} {\bibfield  {journal}
+  {\bibinfo  {journal} {Nuclear Instruments and Methods in Physics Research
+  Section A: Accelerators, Spectrometers, Detectors and Associated Equipment}\
+  }\textbf {\bibinfo {volume} {308}},\ \bibinfo {pages} {390 -- 396} (\bibinfo
+  {year} {1991})}\BibitemShut {NoStop}%
 \end{thebibliography}%
