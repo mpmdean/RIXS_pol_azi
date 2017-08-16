@@ -9,7 +9,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="Fig_geometry.svg"
+   sodipodi:docname="geometry.svg"
    inkscape:version="0.91 r13725"
    version="1.1"
    id="svg5364"
@@ -23,7 +23,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.5347526"
-     inkscape:cx="192.69071"
+     inkscape:cx="42.503638"
      inkscape:cy="118.70069"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -969,7 +969,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -989,9 +989,8 @@
          x="-128.11101"
          id="tspan8870-79"
          sodipodi:role="line">k<tspan
-   dy="2.244473"
    id="tspan10395"
-   style="font-size:10px;fill:#666666">i</tspan></tspan></text>
+   style="font-size:10px;fill:#666666" /></tspan></text>
     <path
        d="m -172.53118,789.91627 -53.76669,79.33028 -12.51481,0 51.55194,-79.33028 14.72956,0 z"
        style="fill:#7aa3cc;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -1191,10 +1190,9 @@
          y="942.54156"
          x="-29.166119"
          id="tspan8870-79-1-5"
-         sodipodi:role="line">k<tspan
-   dy="2.244473"
+         sodipodi:role="line">k'<tspan
    id="tspan10425-2"
-   style="font-size:10px">f</tspan></tspan></text>
+   style="font-size:10px" /></tspan></text>
     <path
        sodipodi:nodetypes="cc"
        d="m -223.94069,924.78355 c 15.36188,6.47332 40.44168,4.18923 59.49488,-16.12212"

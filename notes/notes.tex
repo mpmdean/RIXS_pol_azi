@@ -117,7 +117,7 @@ Attractive as this expression is, it is only strictly valid in spherical symmetr
 Figure~\ref{Cu_RIXS_spectra} shows the 9 fundamental RIXS channels for a Cu $d^9$ ion in a tetragonal crystal field. All three channels with $z$-polarized incident light are zero, because light with this polarization cannot excite into the $x^2-y^2$ ground state orbital. This breaks the simple cross product rule as can be seen by comparing to Eq.~\ref{cross_product_matrix}. The main point to emphasize, is that unless an azimuthal scan is performed about a high symmetry direction of the crystal it will mix the different components in a rather complicated way as illustrated in the example calculation shown in Fig.~\ref{azimuthal} and it is hard to see a particular advantage of this approach. In most experiments it seems prudent to use calculations to maximize the overall cross-section and cross-section contrast between different channels. 
 
 \section{Polarimetry}
-Based on the form of ${\cal F}_{\alpha^\prime\alpha}$ we can make some comments regarding polarimetry. For soft x-rays we can easily generate three independent polarization components in the incident beam. For example, two circular and one linear component. One the scattered side it might initially appear that one must similarly detect three components. However here, we can exploit the fact that at a given scattering angle we know that the electric field along the beam direction is zero. Consequently, if one measures two linear components of the scattered light one can impose three constrains on the scattered polarization. Thus by measuring three scattered components with three different incident polarizations one should be able to obtain all the information contained in a RIXS spectrum \footnote{In some pathological cases one may need to measure different scattering angles, but this is unlikely to present particular problems. It should certainly not constitute a reason to measure the phase of the scattered beam}. 
+Based on the form of ${\cal F}_{\alpha^\prime\alpha}$ we can make some comments regarding polarimetry. For soft x-rays we can easily generate three independent polarization components in the incident beam. For example, two circular and one linear component. One the scattered side it might initially appear that one must similarly detect three components. However here, we can exploit the fact that at a given scattering angle we know that the electric field along the beam direction is zero. Consequently, if one measures two linear components of the scattered light one can impose three constrains on the scattered polarization. Thus by measuring three scattered components with three different incident polarizations one should be able to obtain all the information contained in a RIXS spectrum \footnote{In some pathological cases one may need to measure different scattering angles, but this is unlikely to present particular problems.}. 
 
 For the case of cuprates the situation, as shown in Fig.~\ref{pol_dep} is particularly simple: the spin flip or magnon excitation is present in $\pi-\sigma$ and $\sigma-\pi$ channels and absent in $\pi-\pi$ and $\sigma-\sigma$ channels and the converse is true for phonons. 
 
@@ -128,7 +128,7 @@ For the case of cuprates the situation, as shown in Fig.~\ref{pol_dep} is partic
 
 \begin{figure}
 \includegraphics[width=1.7 in]{geometry.pdf}
-\caption{RIXS scattering geometry. Linearly polarized x-rays ($\sigma$ or $\pi$) are incident upon the sample at an angle $\theta _i = 15^\circ$. The scattered photons with $\sigma^\prime$ or $\pi^\prime$ polarization are collected at $2\theta = 90^\circ$, at $\theta_o$ with respect to the sample surface. \label{geometry}}
+\caption{RIXS scattering geometry. Linearly polarized x-rays ($\sigma$ or $\pi$) are incident upon the sample at an angle $\theta _i$. The scattered photons with $\sigma^\prime$ or $\pi^\prime$ polarization emitted at $\theta_o$ with respect to the sample surface are collected at $2\theta = 90^\circ$. \label{geometry}}
 \end{figure}
 
 %Hill1996
@@ -136,14 +136,14 @@ For the case of cuprates the situation, as shown in Fig.~\ref{pol_dep} is partic
 %Haverkort2010
 
 \section{Polarization analysis at $2\theta \neq 90^\circ$ }
-In practise it is very challenging to produce soft x-ray polarimeters that can completely separate  the different scattered polarization. Consequently, we consider what happens in the case of a polarimeter that operates at $2\theta \neq 90^\circ$ taking some useful results from Detlafs, del Rio and Mazzoli Ref.~\cite{Detlefs2012}. The polarization state of an isolated wave
+In practise it is very challenging to produce soft x-ray polarimeters that can completely separate  the different scattered polarization. Consequently, we consider what happens in the case of a polarimeter that operates at $2\theta \neq 90^\circ$ taking some useful results from Detlafs, del Rio and Mazzoli in Ref.~\cite{Detlefs2012}. The polarization state of an isolated wave
 \begin{equation}
         {\bf E}(t, {\bf r})
-        = \Re\left[
+        = \Re \{
                 \left(V_{\pi} \epsilon_{\pi} 
                 + V_{\sigma} \epsilon_{\sigma}\right)
-        \exp{-i(\omega_{\bf k} t - {\bf k}\cdot{\bf r})}
-        \right]
+        \exp \left[ -i(\omega_{\bf k} t - {\bf k}\cdot{\bf r}) \right]
+        \}
         \label{el_field}
 \end{equation}
 is completely defined by the two complex components of the Jones vector,
@@ -157,7 +157,7 @@ A more general x-ray beam composed of an ensemble of independent waves can be pa
     \langle V_{\sigma}V_{\pi}^{\dagger} \rangle &  \langle V_{\sigma}V_{\sigma}^{\dagger} \rangle
   \end{pmatrix} .
 \end{equation}
-The effect of the beam of this state can be described by a Jones matrix. For Thomson scattering through an angle $2\theta$ in the kinematic approximation, this matrix is diagonal and scales the components without scaling them.
+The effect of an optical element on this beam can be described by a Jones matrix. For Thomson scattering through an angle $2\theta$ in the kinematic approximation, this matrix is diagonal and scales the components without mixing them
 \begin{equation}
 {\bf \rho} = R^2
   \begin{pmatrix}
@@ -167,75 +167,6 @@ The effect of the beam of this state can be described by a Jones matrix. For Tho
 \end{equation}
 We plan to calibrate $R^2$ by measuring a known elastic scatter that will produce only $\sigma \sigma$-scattering and to determine $\theta$ mechanically. 
 
-\begin{comment}
-
-%\section{Poincare} 
-%Think about this more \cite{Mazzoli2007}.
-
-
-\appendix
-\section{Derivation of the dipole operator\label{sec:dipole}}
-The central element Eq.~\ref{eq:K-H} is the transition operator ${\cal D}$, which Ament et al.\ write as
-\begin{equation}
- {\cal D}= \frac{1}{im\omega_{\bf k}}\sum_{i=1}^N   e^{i{\bf k}\cdot {\bf r}_i}{\boldsymbol \epsilon}\cdot{\bf p}_i.
-\label{eq:dipoleoperator}
-\end{equation}
-where ${\bf r}_i$ and ${\bf p}_i$ are the position and momentum operators for electron $i$ and the prefactor is introduced for convenience. In the dipole approximation, one replaces the electron position operator with the atom location ${\bf R}_i$ leaving ${\cal D}$ composed of a momentum operator multiplied by a phase factor depending on the lattice site 
-\begin{equation}
-  {\cal D}={\boldsymbol \epsilon} \cdot {\bf D} ~~~{\rm with} ~~~~
- {\bf D}= \frac{1}{im\omega_{\bf k}}\sum_{i=1}^N e^{i{\bf k} \cdot {\bf R}_i} {\bf p}_i.
- \label{eq:transoper}
-\end{equation}
-
-A transition from $\ket{g}$ to $\bra{n}$ is then written
-\begin{align}
-     \bra{n} {\bf D} \ket{g} &=
-\sum_{i=1}^N \frac{e^{i{\bf k} \cdot {\bf R}_i}}{im\omega_{\bf k}}\bra{n}{\bf p}_i\ket{g}.
-\nonumber
-\end{align}
-We can use the commutator rules of quantum mechanics $[{\bf r}_i,{\bf p}_i]=i\hbar$ to transform this into a form with operator ${\bf r}_i$ \footnote{To see this one also needs to know the chain rule for operators $[A,BC]=B[A,C] + [A,B]C$}
-\begin{align}
-\bra{n} {\bf D} \ket{g} &=\sum_{i=1}^N\frac{e^{i{\bf k} \cdot {\bf R}_i}}{\hbar \omega_{\bf k}}
-\bra{n} [\frac{{\bf p}_i^2}{2m},{\bf r}_i] \ket{g} \nonumber \\
-    &\cong \sum_{i=1}^N\frac{e^{i{\bf k} \cdot {\bf R}_i}}{\hbar \omega_{\bf k}} (E_n-E_g)\bra{n} {\bf r}_i\ket{g} \nonumber \\
-    &\cong \sum_{i=1}^N e^{i{\bf k} \cdot {\bf R}_i} \bra{n} {\bf r}_i\ket{g}
-\end{align}    
-
-
-
-%A typical experimental RIXS geometry is shown in Fig.~\ref{geom}. Vertically ($\sigma$) or horizontally ($\pi$) polarized x-rays are incident at $\theta_i$ on the sample and scattered through angle .
-
-%\begin{figure}
-%\includegraphics[width=1.7 in]{suppl_geometry.pdf}
-%\caption{RIXS scattering geometry. Linearly polarized x-rays ($\sigma$ or $\pi$) are incident upon the sample at an angle $\theta _i $. The scattered photons are collected at $2\theta$ and measured as a function of final energy.}
-%\label{geom}
-%\end{figure}
-
-\end{comment}
-
 \bibliography{refs}
 
 \end{document}
-
-%The incident x-ray electric field ($\vec{e}$) is always parallel to $b$ for $\sigma$ polarization. On the other hand, $\pi$ incident x-ray polarization probes a mixture of $\vec{e} \parallel c$ and $\vec{e}\parallel a$ contributions.  Such a geometry is handled via \texttt{generate\_polarization}($\theta_i$, $2\theta$). Other geometries can be handled by constructing and passing \texttt{absorption\_pol} and \texttt{emission\_pol} to 
-%\texttt{calculate\_rixs} by hand. The codes uses a basis with circular left, parallel and circular right components, which are defined with respect to the high symmetry direction of the atomic site, which we will refer to as the $c$-axis. Left and right circularly polarized light are represented as
-%\begin{equation}
-%(1, 0, 0)
-%\end{equation}
-%and
-%\begin{equation}
-%(0, 0, 1).
-%\end{equation}
-%Linear light along the $a$, $b$ and $c$ axes is then represented as
-%\begin{equation}
-%\frac{1}{\sqrt{2}}(1, 0, 1), 
-%\end{equation}
-%\begin{equation}
-%\frac{i}{\sqrt{2}}(1, 0, -1),
-%\end{equation}
-%and
-%\begin{equation}
-%(0, 1, 0).
-%\end{equation}
-
-%For the case in which only one polarization component is measured, one should set this direction as \texttt{emission\_pol}. If the measurement is performed without polarization analysis \texttt{emission\_pol} should be set as a equal combination of both polarizations perpedicular to the direction of the light. 
