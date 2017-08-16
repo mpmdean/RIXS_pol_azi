@@ -148,21 +148,32 @@ In practise it is very challenging to produce soft x-ray polarimeters that can c
 \end{equation}
 is completely defined by the two complex components of the Jones vector,
 \begin{equation}
-{\bf V} = \left(\begin{array}{c}V_\pi\\V_\sigma\end{array}\right). \end{equation}
+{\bf V} = \left(\begin{array}{c}V_\sigma\\V_\pi\end{array}\right). \end{equation}
 A more general x-ray beam composed of an ensemble of independent waves can be partially polarized and can be represented using the coherency matrix
 \begin{equation}
 {\bf \rho} = 
   \begin{pmatrix}
-    \langle V_{\pi}V_{\pi}^{\dagger} \rangle  & \langle V_{\pi}V_{\sigma}^{\dagger} \rangle \\
-    \langle V_{\sigma}V_{\pi}^{\dagger} \rangle &  \langle V_{\sigma}V_{\sigma}^{\dagger} \rangle
+    \langle V_{\sigma}V_{\sigma}^{\dagger} \rangle  & \langle V_{\sigma}V_{\pi}^{\dagger} \rangle \\
+    \langle V_{\pi}V_{\sigma}^{\dagger} \rangle &  \langle V_{\pi}V_{\pi}^{\dagger} \rangle
   \end{pmatrix} .
 \end{equation}
 The effect of an optical element on this beam can be described by a Jones matrix. For Thomson scattering through an angle $2\theta$ in the kinematic approximation, this matrix is diagonal and scales the components without mixing them
 \begin{equation}
-{\bf \rho} = R^2
+{\bf M}_{Th} = R^2
   \begin{pmatrix}
     1  & 0  \\
     0 &  \cos^2(\theta)
+  \end{pmatrix} .
+\end{equation}
+The Jones vector transforms as
+\begin{equation}
+{\bf V}^\prime = {\bf M}_{Th} \cdot {\bf V} =  \left(\begin{array}{c} V_\pi \\ V_\sigma \cos^2(\theta) \end{array}\right) \end{equation}
+under Thomson scattering. The coherency matrix transforms as 
+\begin{equation}
+{\bf \rho}^\prime = {\bf M}_{Th} \cdot {\bf \rho} \cdot {\bf M}_{Th}^{\dagger} =
+  \begin{pmatrix}
+    \langle V_{\sigma}V_{\sigma}^{\dagger} \rangle  & \langle V_{\sigma}V_{\pi}^{\dagger}  \rangle \cos^2(\theta) \\
+    \langle V_{\pi}V_{\sigma}^{\dagger} \rangle \cos^2(\theta) &  \langle V_{\pi}V_{\pi}^{\dagger} \cos^4(\theta)\rangle
   \end{pmatrix} .
 \end{equation}
 We plan to calibrate $R^2$ by measuring a known elastic scatter that will produce only $\sigma \sigma$-scattering and to determine $\theta$ mechanically. 
