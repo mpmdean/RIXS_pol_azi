@@ -26,41 +26,41 @@ Control: year (0) verbatim
 Control: production of eprint (0) enabled
 You've used 10 entries,
             5847 wiz_defined-function locations,
-            1673 strings with 16799 characters,
-and the built_in function-call counts, 9890 in all, are:
-= -- 591
-> -- 275
-< -- 87
-+ -- 86
-- -- 82
-* -- 1578
-:= -- 921
+            1671 strings with 16555 characters,
+and the built_in function-call counts, 9675 in all, are:
+= -- 586
+> -- 261
+< -- 86
++ -- 82
+- -- 78
+* -- 1530
+:= -- 906
 add.period$ -- 15
 call.type$ -- 10
 change.case$ -- 40
 chr.to.int$ -- 20
 cite$ -- 10
-duplicate$ -- 944
-empty$ -- 678
-format.name$ -- 145
-if$ -- 1885
+duplicate$ -- 929
+empty$ -- 664
+format.name$ -- 139
+if$ -- 1840
 int.to.chr$ -- 1
 int.to.str$ -- 18
-missing$ -- 130
+missing$ -- 128
 newline$ -- 76
 num.names$ -- 21
-pop$ -- 368
+pop$ -- 365
 preamble$ -- 1
 purify$ -- 32
 quote$ -- 0
-skip$ -- 342
+skip$ -- 338
 stack$ -- 0
-substring$ -- 286
-swap$ -- 919
-text.length$ -- 31
+substring$ -- 277
+swap$ -- 897
+text.length$ -- 29
 text.prefix$ -- 0
 top$ -- 10
-type$ -- 131
+type$ -- 129
 warning$ -- 2
 while$ -- 36
 width$ -- 0

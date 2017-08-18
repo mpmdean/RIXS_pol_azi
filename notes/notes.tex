@@ -79,13 +79,13 @@ Note that these elements do not interfere with one another (as can be seen by ex
 
 \section{Azimuthal dependence}
 \begin{figure*}
-    \includegraphics{Cu_RIXS.pdf}
+    \includegraphics{Figs/Cu_RIXS.pdf}
     \caption{The different components of the RIXS cross section for a Cu $d^9$ ion in a tetragonal crystal field.}
     \label{Cu_RIXS_spectra}
 \end{figure*}
 
 \begin{figure}
-    \includegraphics{azimuthal.pdf}
+    \includegraphics{Figs/azimuthal.pdf}
     \caption{The azimuthal dependence RIXS cross section for a Cu $d^9$ ion in a tetragonal crystal field. The starting condition at $\phi=0^{\circ}$ has scattering angle $2\theta=130^{\circ}$ and incident angle $\theta_i=120^{\circ}$ and $\pi$ polarized light.  \label{azimuthal}}
 \end{figure}
 
@@ -114,20 +114,20 @@ Attractive as this expression is, it is only strictly valid in spherical symmetr
    F_{z^\prime x} & F_{z^\prime y}  & F_{z^\prime z}
   \end{pmatrix} .
 \end{equation}
-Figure~\ref{Cu_RIXS_spectra} shows the 9 fundamental RIXS channels for a Cu $d^9$ ion in a tetragonal crystal field. All three channels with $z$-polarized incident light are zero, because light with this polarization cannot excite into the $x^2-y^2$ ground state orbital. This breaks the simple cross product rule as can be seen by comparing to Eq.~\ref{cross_product_matrix}. The main point to emphasize, is that unless an azimuthal scan is performed about a high symmetry direction of the crystal it will mix the different components in a rather complicated way as illustrated in the example calculation shown in Fig.~\ref{azimuthal} and it is hard to see a particular advantage of this approach. In most experiments it seems prudent to use calculations to maximize the overall cross-section and cross-section contrast between different channels. 
+Figure~\ref{Cu_RIXS_spectra} shows the 9 fundamental RIXS channels for a Cu $d^9$ ion in a tetragonal crystal field. All three channels with $z$-polarized incident light are zero, because light with this polarization cannot excite into the $x^2-y^2$ ground state orbital. This breaks the simple cross product rule as can be seen by comparing to Eq.~\ref{cross_product_matrix}. The main point to emphasize, is that unless an azimuthal scan is performed about a high symmetry direction of the crystal it will mix the different components in a rather complicated way as illustrated in the example calculation shown in Fig.~\ref{azimuthal} and it is hard to see a particular advantage of this approach. In most experiments it seems prudent to use calculations to maximize the overall cross-section and cross-section contrast between different channels. One possibly interesting exception is an azimuthal scan in which the ${\bf Q}$ vector is chosen such that the incident x-rays are along the $a$ axis of the sample. 
 
 \section{Polarimetry}
 Based on the form of ${\cal F}_{\alpha^\prime\alpha}$ we can make some comments regarding polarimetry. For soft x-rays we can easily generate three independent polarization components in the incident beam. For example, two circular and one linear component. One the scattered side it might initially appear that one must similarly detect three components. However here, we can exploit the fact that at a given scattering angle we know that the electric field along the beam direction is zero. Consequently, if one measures two linear components of the scattered light one can impose three constrains on the scattered polarization. Thus by measuring three scattered components with three different incident polarizations one should be able to obtain all the information contained in a RIXS spectrum \footnote{In some pathological cases one may need to measure different scattering angles, but this is unlikely to present particular problems.}. 
 
 For the case of cuprates the situation, as shown in Fig.~\ref{pol_dep} is particularly simple: the spin flip or magnon excitation is present in $\pi-\sigma$ and $\sigma-\pi$ channels and absent in $\pi-\pi$ and $\sigma-\sigma$ channels and the converse is true for phonons. 
 
-\begin{figure}
-    \includegraphics{pol_dep.pdf}
-    \caption{The azimuthal dependence RIXS cross section for a Cu $d^9$ ion in a tetragonal crystal field. The starting condition at $\phi=0^{\circ}$ has scattering angle $2\theta=130^{\circ}$ and incident angle $\theta_i=120^{\circ}$ and $\pi$ polarized light as depicted in Fig.~\ref{geometry}. \label{pol_dep}}
-\end{figure}
+%\begin{figure}
+ %   \includegraphics{Figs/pol_dep.pdf}
+   % \caption{The azimuthal dependence RIXS cross section for a Cu $d^9$ ion in a tetragonal crystal field. The starting condition at $\phi=0^{\circ}$ has scattering angle $2\theta=130^{\circ}$ and incident angle $\theta_i=120^{\circ}$ and $\pi$ polarized light as depicted in Fig.~\ref{geometry}. \label{pol_dep}}
+%\end{figure}
 
 \begin{figure}
-\includegraphics[width=1.7 in]{geometry.pdf}
+\includegraphics[width=1.7 in]{Figs/geometry.pdf}
 \caption{RIXS scattering geometry. Linearly polarized x-rays ($\sigma$ or $\pi$) are incident upon the sample at an angle $\theta _i$. The scattered photons with $\sigma^\prime$ or $\pi^\prime$ polarization emitted at $\theta_o$ with respect to the sample surface are collected at $2\theta = 90^\circ$. \label{geometry}}
 \end{figure}
 
@@ -165,18 +165,25 @@ The effect of an optical element on this beam can be described by a Jones matrix
     0 &  \cos^2(\theta)
   \end{pmatrix} .
 \end{equation}
-The Jones vector transforms as
-\begin{equation}
-{\bf V}^\prime = {\bf M}_{Th} \cdot {\bf V} =  \left(\begin{array}{c} V_\pi \\ V_\sigma \cos^2(\theta) \end{array}\right) \end{equation}
-under Thomson scattering. The coherency matrix transforms as 
-\begin{equation}
-{\bf \rho}^\prime = {\bf M}_{Th} \cdot {\bf \rho} \cdot {\bf M}_{Th}^{\dagger} =
-  \begin{pmatrix}
-    \langle V_{\sigma}V_{\sigma}^{\dagger} \rangle  & \langle V_{\sigma}V_{\pi}^{\dagger}  \rangle \cos^2(\theta) \\
-    \langle V_{\pi}V_{\sigma}^{\dagger} \rangle \cos^2(\theta) &  \langle V_{\pi}V_{\pi}^{\dagger} \cos^4(\theta)\rangle
-  \end{pmatrix} .
-\end{equation}
-We need to further check the form of these equations for dynamical diffraction \cite{Malgrange1991}. We plan to calibrate $R^2$ by measuring a known elastic scatter that will produce only $\sigma \sigma$-scattering and to determine $\theta$ mechanically. 
+%The Jones vector transforms as
+%\begin{equation}
+%{\bf V}^\prime = {\bf M}_{Th} \cdot {\bf V} =  \left(\begin{array}{c} V_\pi \\ V_\sigma \cos^2(\theta) \end{array}\right) \end{equation}
+%under Thomson scattering. The coherency matrix transforms as 
+%\begin{equation}
+%{\bf \rho}^\prime = {\bf M}_{Th} \cdot {\bf \rho} \cdot {\bf M}_{Th}^{\dagger} =
+% \begin{pmatrix}
+%    \langle V_{\sigma}V_{\sigma}^{\dagger} \rangle  & \langle V_{\sigma}V_{\pi}^{\dagger}  \rangle \cos^2(\theta) \\
+%    \langle V_{\pi}V_{\sigma}^{\dagger} \rangle \cos^2(\theta) &  \langle V_{\pi}V_{\pi}^{\dagger} \cos^4(\theta)\rangle
+%  \end{pmatrix} .
+%\end{equation}
+
+In other to further confirm the validity of this for dynamical diffraction we need to consider a particular model. For this we chose 40 repeats of W and B$_4$C on Si with a bilayer distanced tuned to scatter at $\theta_i=20^{\circ}$ at $E_i=931$~eV. The interface roughness was set to 1~\AA{}. The results, calculated using ReMagX \cite{Macke2014} show that the $\pi/\sigma$ ratio is 2.7\% higher when dynamical effects are considered due to the stronger attenuation of the strong $\sigma$ beam.  More sophisticated calculations that include multiple scattering do not show any appreciable difference. 
+
+\begin{figure*}
+    \includegraphics{Figs/ReMagX.pdf}
+    \caption{The reflectivity of a multilayer as described in the text.}
+    \label{Cu_RIXS_spectra}
+\end{figure*}
 
 \bibliography{refs}
 

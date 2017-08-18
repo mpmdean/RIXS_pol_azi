@@ -138,19 +138,15 @@
   {\bibinfo  {journal} {The European Physical Journal Special Topics}\ }\textbf
   {\bibinfo {volume} {208}},\ \bibinfo {pages} {359--371} (\bibinfo {year}
   {2012})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Malgrange}\ \emph {et~al.}(1991)\citenamefont
-  {Malgrange}, \citenamefont {Carvalho}, \citenamefont {Braicovich},\ and\
-  \citenamefont {Goulon}}]{Malgrange1991}%
+\bibitem [{\citenamefont {Macke}\ and\ \citenamefont
+  {Goering}(2014)}]{Macke2014}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
-  {Malgrange}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Carvalho}},
-  \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Braicovich}}, \ and\
-  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Goulon}},\ }\bibfield
-  {title} {\enquote {\bibinfo {title} {Transfer of circular polarization in
-  bragg crystal x-ray monochromators},}\ }\href {\doibase
-  http://dx.doi.org/10.1016/0168-9002(91)90676-H} {\bibfield  {journal}
-  {\bibinfo  {journal} {Nuclear Instruments and Methods in Physics Research
-  Section A: Accelerators, Spectrometers, Detectors and Associated Equipment}\
-  }\textbf {\bibinfo {volume} {308}},\ \bibinfo {pages} {390 -- 396} (\bibinfo
-  {year} {1991})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S}~\bibnamefont
+  {Macke}}\ and\ \bibinfo {author} {\bibfnamefont {E}~\bibnamefont {Goering}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {Magnetic reflectometry of
+  heterostructures},}\ }\href
+  {http://stacks.iop.org/0953-8984/26/i=36/a=363201} {\bibfield  {journal}
+  {\bibinfo  {journal} {Journal of Physics: Condensed Matter}\ }\textbf
+  {\bibinfo {volume} {26}},\ \bibinfo {pages} {363201} (\bibinfo {year}
+  {2014})}\BibitemShut {NoStop}%
 \end{thebibliography}%
