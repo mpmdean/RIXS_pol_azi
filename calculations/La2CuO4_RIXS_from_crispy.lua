@@ -5,6 +5,9 @@
 -- symmetry: D4h
 -- experiment: RIXS
 -- edge: L2,3-M4,5 (2p3d)
+
+-- Some useful explanation is in
+-- M. Haverkort, Journal of Physics: Conference Series 712 (2016) 012001
 --------------------------------------------------------------------------------
 Verbosity(0x00FF)
 
@@ -23,8 +26,9 @@ H_soc                 = 1
 H_cf                  = 1
 
 --------------------------------------------------------------------------------
--- Define the number of electrons, shells, etc.
--- NFermions is 16 from 6 p states + 10 d states
+-- Define the number of electrons, shells, etc. that forms the basis
+-- NFermions is 16 from 6 p states + 10 d states. Each of these is a "spin/orbital"
+-- Bosons include, for example, phonons. Not used here. 
 --------------------------------------------------------------------------------
 NBosons = 0
 NFermions = 16
@@ -32,6 +36,10 @@ NFermions = 16
 NElectrons_2p = 6
 NElectrons_3d = 9
 
+-- basis has spin up spin down pairs 
+-- The states are being labeled by m_l (which quanty infers from the size of the basis)
+-- m_l = -1, 0, 1 for 2p state
+-- m_l = -2, -1, 0, 1, 2 for 3d state
 IndexDn_2p = {0, 2, 4}
 IndexUp_2p = {1, 3, 5}
 IndexDn_3d = {6, 8, 10, 12, 14}
@@ -218,10 +226,12 @@ H_f = H_f
     + B
 --------------------------------------------------------------------------------
 -- Define the restrictions and set the number of initial states.
+-- InitialRestrictions is ensuring that the number of electrons is conversed (as it is in RIXS).
 --------------------------------------------------------------------------------
 InitialRestrictions = {NFermions, NBosons, {'111111 0000000000', NElectrons_2p, NElectrons_2p},
                                            {'000000 1111111111', NElectrons_3d, NElectrons_3d}}
 
+-- This creates the 10 lowest energy eigenstates of the system
 NPsis = 10
 Psis = Eigensystem(H_i, InitialRestrictions, NPsis)
 
@@ -287,25 +297,14 @@ NE2 = 1000
 -- Calculate the ground state energy.
 E_gs = Psis[1] * H_i * Psis[1]
 
-for i, Psi in ipairs(Psis) do
-    E = Psi * H_i * Psi
+-- In La2CuO4 there is only one ground state. If there are multiple states separated by < kBT one needs
+-- to perform weighted sum over the different states.
 
-    if math.abs(E - E_gs) < 1e-12 then
-        dZ = 1
-    else
-        dZ = math.exp(-(E - E_gs) / T)
-    end
-
-    if (dZ < 1e-8) then
-        break
-    end
-
-    Z = Z + dZ
-
-    for j, OperatorOut in ipairs({Tx_3d_2p, Ty_3d_2p, Tz_3d_2p}) do
-        for k, OperatorIn in ipairs({Tx_2p_3d, Ty_2p_3d, Tz_2p_3d}) do
-            spectrum = CreateResonantSpectra(H_m, H_f, OperatorIn, OperatorOut, Psi, {{'Emin1', Emin1}, {'Emax1', Emax1}, {'NE1', NE1}, {'Gamma1', Gamma1}, {'Emin2', Emin2}, {'Emax2', Emax2}, {'NE2', NE2}, {'Gamma2', Gamma2}})
-            spectrum.Print({{'file', 'RIXS_pol_' .. j .. k .. '_out.spec'}})
-        end
+-- N.B. Lua indexes starting at 1
+Psi = Psis[1]
+for j, OperatorOut in ipairs({Tx_3d_2p, Ty_3d_2p, Tz_3d_2p}) do
+    for k, OperatorIn in ipairs({Tx_2p_3d, Ty_2p_3d, Tz_2p_3d}) do
+        spectrum = CreateResonantSpectra(H_m, H_f, OperatorIn, OperatorOut, Psi, {{'Emin1', Emin1}, {'Emax1', Emax1}, {'NE1', NE1}, {'Gamma1', Gamma1}, {'Emin2', Emin2}, {'Emax2', Emax2}, {'NE2', NE2}, {'Gamma2', Gamma2}})
+        spectrum.Print({{'file', 'RIXS_pol_' .. j .. k .. '_out.spec'}})
     end
 end

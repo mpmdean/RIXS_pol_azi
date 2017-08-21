@@ -1,5 +1,5 @@
 -- Bragg Peak of thin film + substrate
--- Need to remove plot and write files
+
 print("<h2>Bragg Peaks of thin film + substrate</h2>");
 
 
@@ -340,21 +340,19 @@ quad.SetMultipleScattering(MS.LAYER)
 
 quad.PrintStatus();
 
-file = assert(io.open("reflec.txt", "w"))
-
 -- reflectivity
+
 for theta = 90.1, 130., 0.02 do 
 	quad.light.SetThetaPhi(theta, 0);
 	quad.Scatter();
-    file:write(string.format("%14.7E ", theta))
-    L = -(quad.light.GetKVector().z - quad.GetReflectedKVector(0).z)/quad.rl.b3().z;
-    file:write(string.format("%14.7E ", L))
-    file:write(string.format("%14.7E ", quad.GetReflectedIntensity(0)))
-    file:write("\n")
+	-- instead of theta we output the table with the momentum transfer qz
 	-- qz = quad.GetReflectedKVector(0).z - quad.light.GetKVector().z;
-
+	plot.AddPoint(theta, quad.GetReflectedIntensity(0));
+    print(theta, "    \t    ", quad.GetReflectedIntensity(0))
 end
 
-file:close()
-io.write("\n")
+plot.SetLabels("theta (deg)", "Intensity");
+plot.DrawLog();
+
+
 
