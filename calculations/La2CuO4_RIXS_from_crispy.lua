@@ -28,7 +28,7 @@ H_cf                  = 1
 --------------------------------------------------------------------------------
 -- Define the number of electrons, shells, etc. that forms the basis
 -- NFermions is 16 from 6 p states + 10 d states. Each of these is a "spin/orbital"
--- Bosons include, for example, phonons. Not used here. 
+-- Bosons include, for example, phonons. Not used here.
 --------------------------------------------------------------------------------
 NBosons = 0
 NFermions = 16
@@ -36,10 +36,15 @@ NFermions = 16
 NElectrons_2p = 6
 NElectrons_3d = 9
 
--- basis has spin up spin down pairs 
+-- basis has spin up spin down pairs
 -- The states are being labeled by m_l (which quanty infers from the size of the basis)
--- m_l = -1, 0, 1 for 2p state
--- m_l = -2, -1, 0, 1, 2 for 3d state
+-- m_l = -1, 0, 1 for 2p state, which has L=1
+-- m_l = -2, -1, 0, 1, 2 for 3d state, which has L=2
+-- {0, 2, 4} is just a list is lua syntax
+-- Note that we have already started using notation relevant for a spherical polar basis
+-- Quanty does not force the usage of such a basis, but it is crucial that everything
+-- is in the same basis!
+-- The down-up convention is used opposite to the usual writing of the Pauli Matices
 IndexDn_2p = {0, 2, 4}
 IndexUp_2p = {1, 3, 5}
 IndexDn_3d = {6, 8, 10, 12, 14}
@@ -48,6 +53,11 @@ IndexUp_3d = {7, 9, 11, 13, 15}
 --------------------------------------------------------------------------------
 -- Define the Coulomb term.
 --------------------------------------------------------------------------------
+-- The 'U' operator works in spherical harmonics to expand and evaluate the
+-- required integrals that make up the Coulomb repulsion
+
+-- Coulomb repulsion within the d shell (L=2).
+-- Parameterized by SlaterIntegrals  F(k) with k running from 0 to 2L in steps of 2
 F0_3d_3d = NewOperator('U', NFermions, IndexUp_3d, IndexDn_3d, {1, 0, 0})
 F2_3d_3d = NewOperator('U', NFermions, IndexUp_3d, IndexDn_3d, {0, 1, 0})
 F4_3d_3d = NewOperator('U', NFermions, IndexUp_3d, IndexDn_3d, {0, 0, 1})
@@ -207,13 +217,21 @@ Ssqr = Sx * Sx + Sy * Sy + Sz * Sz
 Lsqr = Lx * Lx + Ly * Ly + Lz * Lz
 Jsqr = Jx * Jx + Jy * Jy + Jz * Jz
 
-Bx = 0.12 * math.sqrt(1/2) * 0.0
-By = 0.12 * math.sqrt(1/2) * 0.0
+Bx = 0.12 * math.sqrt(1/2)
+By = 0.12 * math.sqrt(1/2) 
 Bz = 0.0 * EnergyUnits.Tesla.value
 
-B = Bx * (2 * Sx + Lx)
-  + By * (2 * Sy + Ly)
-  + Bz * (2 * Sz + Lz)
+-- Real field acts on the total moment
+-- 2S + L
+-- Exchange field will act on
+-- 2*Sx
+
+-- B = Bx * (2 * Sx + Lx)
+--   + By * (2 * Sy + Ly)
+--   + Bz * (2 * Sz + Lz)
+B = Bx * 2*Sx
+   + By * 2*Sy
+   + Bz * 2*Sz
 
 H_i = H_i
     + B
@@ -294,17 +312,33 @@ Gamma2 = 0.05
 NE2 = 1000
 -- NE2 = 12
 
--- Calculate the ground state energy.
+-- Calculate the energy of the first state.
 E_gs = Psis[1] * H_i * Psis[1]
 
 -- In La2CuO4 there is only one ground state. If there are multiple states separated by < kBT one needs
 -- to perform weighted sum over the different states.
-
 -- N.B. Lua indexes starting at 1
-Psi = Psis[1]
+
 for j, OperatorOut in ipairs({Tx_3d_2p, Ty_3d_2p, Tz_3d_2p}) do
     for k, OperatorIn in ipairs({Tx_2p_3d, Ty_2p_3d, Tz_2p_3d}) do
-        spectrum = CreateResonantSpectra(H_m, H_f, OperatorIn, OperatorOut, Psi, {{'Emin1', Emin1}, {'Emax1', Emax1}, {'NE1', NE1}, {'Gamma1', Gamma1}, {'Emin2', Emin2}, {'Emax2', Emax2}, {'NE2', NE2}, {'Gamma2', Gamma2}})
+        spectrum = 0
+        Z = 0
+        for i, Psi in ipairs(Psis) do
+            E = Psi * H_i * Psi
+            if math.abs(E - E_gs) < 1e-12 then
+                dZ = 1
+            else
+                dZ = math.exp(-(E - E_gs) / T)
+            end
+            print(string.format("i = %i, dZ = %.5f\n", i, dZ))
+            if (dZ < 1e-8) then
+                print(string.format("Stop including spectra a %i th iteration\n", i))
+                break
+            end
+            Z = Z + dZ
+            spectrum = spectrum + dZ * CreateResonantSpectra(H_m, H_f, OperatorIn, OperatorOut, Psi, {{'Emin1', Emin1}, {'Emax1', Emax1}, {'NE1', NE1}, {'Gamma1', Gamma1}, {'Emin2', Emin2}, {'Emax2', Emax2}, {'NE2', NE2}, {'Gamma2', Gamma2}})
+        end
+        spectrum = spectrum / Z
         spectrum.Print({{'file', 'RIXS_pol_' .. j .. k .. '_out.spec'}})
     end
 end
